@@ -1,0 +1,76 @@
+<app-nav></app-nav>
+
+<div class="main">
+    <div class="bg-image" style="background-image: url(https://image.tmdb.org/t/p/w500{{movie?.backdrop_path}});"> 
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-9">
+                                    <h2>{{movie?.title}}</h2>
+                                </div>
+                                <div class="col" id="star">
+                                    <div class="row g-0">
+                                        <div class="col-2 d-flex align-items-center">
+                                            <i class="fa-solid fa-star fa-2xl" style="color: #ffc107;" ></i>
+                                        </div>
+                                        <div class="col">
+                                            <h4>
+                                                {{movie?.vote_average | number: '.1-1'}}
+                                                <span style="font-size: large; color: lightgray;">/10</span>
+                                            </h4>
+                                            Votes: {{movie?.vote_count}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <p style="color: lightgray; font-weight: bold;">
+                                        {{movie?.release_date!.split("-")[0]}} 
+                                         • {{movie?.runtime!}}m
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <p></p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3" id="smallpic">
+                            <img [src]="images[0]" class="card-img-top" alt="movie Image">
+                        </div>
+                        <div class="col">
+                            <img [src]="images[1]" class="card-img" alt="movie Image">
+                        </div>
+                        
+                    </div>
+                        
+                  <div class="card-footer">
+                    <div class="row" style="margin-bottom: 1%; margin-top: 1%;">
+                        <div *ngFor="let gen of genres" id="genres">
+                            {{gen.name}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>{{movie?.overview}}</p>
+                    </div>
+                    <div class="row">
+                        <div (click)="AddWishlistItemToUser(movie)" >
+                            <button class="btn btn-warning">Add to watchlist</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<app-reviews [movieId]="movie.id" [movieTitle]="movie.title"></app-reviews>
+
+<app-footer></app-footer>

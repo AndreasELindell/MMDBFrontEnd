@@ -1,0 +1,130 @@
+<app-nav> </app-nav>
+
+<div class="row d-flex justify-content-center">
+  <ngb-carousel id="carousel">
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+        <a [routerLink]="['/details', movies[0]?.id]">
+          <img [src]="images[0]" alt="first slide" />
+        </a>
+			</div>
+			<div class="carousel-caption">
+				<h3>{{movies[0]?.title}}</h3>
+				<p class="carousle-overview">{{movies[0]?.overview}}</p>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+        <a [routerLink]="['/details', movies[1]?.id]">
+          <img [src]="images[1]" alt=" second slide" />
+        </a>
+			</div>
+			<div class="carousel-caption">
+				<h3>{{movies[1]?.title}}</h3>
+				<p class="carousle-overview">{{movies[1]?.overview}}</p>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+        <a [routerLink]="['/details', movies[2]?.id]">
+          <img [src]="images[2]" alt=" third slide" />
+        </a>
+			</div>
+			<div class="carousel-caption">
+				<h3>{{movies[2]?.title}}</h3>
+				<p class="carousle-overview">{{movies[2]?.overview}}</p>
+			</div>
+		</ng-template>
+	</ngb-carousel>
+</div>
+
+<div class="container" id="wishlist">
+  <div class="row">
+      <a [routerLink]="['/movieTopPicks']">
+        <h2>
+          <b>Top picks</b>
+          <i class="fa-solid fa-arrow-right" ></i>
+        </h2>
+      </a>
+  </div>
+  <div class="row d-flex flex-nowrap overflow-auto" id="wishlistitems">
+    <div class="col-3"*ngFor="let m of movies">
+      <div class="card bg-dark">
+        <img src="https://image.tmdb.org/t/p/w500{{m.poster_path}}" class="card-img-top" alt="movie Image">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{m.title}}</b></h5>
+          <p class="card-text">Release: {{m.release_date}}</p>
+          <p class="card-text"><i class="fa-solid fa-star" style="color: #ffc107;"></i> {{m.vote_average | number: '.1-1'}}</p>
+          <p class="card-text">Votes: {{m.vote_count}}</p>
+        </div>
+        <div class="card-footer d-flex">
+          <a [routerLink]="['/details', m.id]" class="btn btn-warning">See details!</a>
+            <button (click)="AddWishlistItemToUser(m)" class="btn btn-warning" style="margin-left:auto;"><i class="fa-regular fa-eye" style="color: #000000;"></i>
+              <span class="tooltiptext">Add to Watchlist</span>
+            </button>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="reviews" class="container" *ngIf="myReviews.length > 0">
+  <div class="row">
+      <a [routerLink]="['/myreviews']">
+        <h2>
+          <b>Reviews</b>
+          <i class="fa-solid fa-arrow-right" ></i>
+        </h2>
+      </a>
+  </div>
+  <div class="row  d-flex flex-nowrap overflow-auto" id="wishlistitems">
+    <div class="col-4"*ngFor="let r of myReviews">
+      <div class="card bg-dark">
+        <div class="card-header">
+          <h4>
+            {{r.movieTitle}}
+          </h4>
+        </div>
+        <div class="card-body">
+          <h5 class="card-text"> {{r.content}}</h5>
+        </div>
+        <div class="card-footer d-flex">
+          <a [routerLink]="['/details', r.movieId]" class="btn btn-warning">Go to review</a>
+          <span>Reviewed: {{r.updated_at!.split('T')[0].split(' ')[0]}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="wishlist" *ngIf="wishlist.length > 0">
+  <div class="row">
+      <a [routerLink]="['/watchlist']">
+        <h2>
+          <b>Watchlist</b>
+          <i class="fa-solid fa-arrow-right" ></i>
+        </h2>
+      </a>
+  </div>
+  <div class="row d-flex flex-nowrap overflow-auto" id="wishlistitems">
+    <div class="col-3"*ngFor="let w of wishlist">
+      <div class="card bg-dark">
+        <img src="https://image.tmdb.org/t/p/w500{{w.movie.poster_path}}" class="card-img-top" alt="movie Image">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{w.movie.title}}</b></h5>
+          <p class="card-text">Release: {{w.movie.release_date}}</p>
+          <p class="card-text"><i class="fa-solid fa-star" style="color: #ffc107;"></i> {{w.movie.vote_average | number: '.1-1'}}</p>
+          <p class="card-text">Votes: {{w.movie.vote_count}}</p>
+        </div>
+        <div class="card-footer">
+          <a [routerLink]="['/details', w.movie.id]" class="btn btn-warning">See details!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+

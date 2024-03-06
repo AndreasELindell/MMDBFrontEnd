@@ -1,0 +1,37 @@
+.container{
+    background-image: url(../../assets/Images/MMDbLogo.png);
+    background-repeat: no-repeat;
+    background-position: 55%;
+    z-index: 1;
+}
+.panel{
+    margin-top: 20vh;
+    border: none;
+    border-radius: 12px;
+    z-index: 2;
+}
+.panel > *{
+    z-index: 2;
+}
+.btn{
+    width:100%;
+}
+.input-group.error{
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+@media (max-width: 1200px)
+{
+    .panel{
+        margin-inline: -55%;
+        width: 65vw;
+    }
+}
+@media (max-width: 500px)
+{
+    .panel{
+        margin-inline: -85%;
+        width: 91vw;
+    }
+}

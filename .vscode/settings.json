@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c33995a8-fd10-410a-81df-30b7f60ca5b2/resourceGroups/MMDB/providers/Microsoft.Web/sites/MMDB",
+    "appService.deploySubpath": "dist"
+}

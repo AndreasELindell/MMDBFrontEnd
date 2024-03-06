@@ -1,0 +1,54 @@
+.container-fluid{
+    justify-content:center;
+}
+.text-white{
+    margin-right: 1rem;
+}
+#seachbar{
+    width: 35vw;
+}
+.input-group{
+    margin-inline: 3vw;
+}
+@media(max-width: 575px)
+{
+    .container-fluid{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar-brand{
+        margin-left: 50%;
+        justify-content: center;
+        margin-right: 50%;
+    }
+    #seachbar{
+        width: 100%;
+    }
+    #user{
+        width: 100%;
+        margin-top: 1rem;
+        margin-left: 55%;
+    }
+}
+@media(max-width: 450px)
+{
+    .container-fluid{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar-brand{
+        margin-left: 50%;
+        justify-content: center;
+        margin-right: 50%;
+    }
+    #seachbar{
+        width: 100%;
+    }
+    #user{
+        width: 100%;
+        margin-top: 1rem;
+        margin-left: 45%;
+    }
+}

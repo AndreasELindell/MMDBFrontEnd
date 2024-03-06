@@ -1,0 +1,65 @@
+.container{
+    background-color: white;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border-radius: 10px;
+}
+h2{
+    border-left: 5px solid #ffc107;
+    padding-left: 10px;
+}
+#firstrow{
+    padding-inline: 1rem;
+    margin-top: 1rem;
+}
+#author-avatar{
+    height: 5vh;
+    width: auto;
+}
+.card-footer{
+    padding: 1rem;
+    width: 100%;
+    margin-top: 0;
+}
+.card-footer > *{
+    margin-top: 0;
+}
+.card{
+    padding: 0;
+    box-shadow: 0px 0px 3px 0px black;
+}
+.fa-solid{
+    padding: 1rem;
+    height: 5vh;
+    width: auto;
+}
+h6{
+    width: 30%;
+}
+p{
+    width: auto;
+    margin: 0;
+    margin-left: auto;
+}
+span{
+    font-size: large;
+    margin-left: 1rem;
+    color: grey;
+}
+h3{
+    margin-top: 3rem;
+}
+#review-content{
+    min-height: 15vh;
+    height: auto;
+}
+textarea{
+    border-radius: 5px;
+}
+@media (max-width: 1000px)
+{
+    textarea{
+        width: 100%;
+     }
+}

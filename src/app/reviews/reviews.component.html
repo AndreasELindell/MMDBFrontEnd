@@ -1,0 +1,63 @@
+<div class="container">
+    <h2>
+        <b>Reviews</b> <span> {{reviews.length}}</span>
+    </h2>
+    <h3 *ngIf="reviews.length == 0">
+        Be the first to leave a review!
+    </h3>
+    <div *ngFor="let review of reviews">
+        <div class="row" id="firstrow">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-10">
+                            {{review.content}}
+                        </div>
+                        <div class="col">
+                            <h5 class="card-text"><i class="fa-solid fa-star" style="color: #ffc107;"></i> {{review.author_details.rating}}/10</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row d-flex align-items-center">
+                        <img *ngIf="review.author_details.avatar_path" src="https://image.tmdb.org/t/p/w500{{review.author_details.avatar_path}}" id="author-avatar">
+                        <div *ngIf="!review.author_details.avatar_path" class="fa-solid fa-circle-user fa-2xl" style="color: #ffc107;"></div>
+                        <h6 *ngIf="review.author_details.name.length > 0">{{review.author_details.name}}</h6>
+                        <h6 *ngIf="review.author_details.name.length < 1">Anonymous user</h6>
+                        <p>Reviewed: {{review.updated_at!.split('T')[0].split(' ')[0]}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form>
+        <div class="row" id="firstrow">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-9">
+                            <textarea [(ngModel)]="content" rows="10" cols="90" name="content" placeholder=" Write your review on this movie" >
+                            </textarea>
+                        </div>
+                        <div class="col-3">
+                            <i class="fa-solid fa-star" style="color: #ffc107;"></i>
+                            <select [(ngModel)]="rating" name="rating">
+                                <option *ngFor="let r of ratings" value="{{r}}">
+                                {{r}}
+                                </option>
+                            </select>
+                            <span>/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row d-flex align-items-center">
+                        <button class="btn btn-warning" (click)="SubmitReview()">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

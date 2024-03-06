@@ -1,0 +1,31 @@
+.outer{
+    height: 100vh;
+    background: linear-gradient(to top, #ffffff 30%, #b3a04b 90%);
+}
+
+.panel{
+    margin-top: 20vh;
+    box-shadow: 20px 20px 100px rgb(180, 180, 201);
+    border-radius: 12px;
+}
+.btn{
+    width:100%;
+}
+.input-group.error{
+    border: 1px solid red;
+    border-radius: 5px;
+}
+@media (max-width: 1200px)
+{
+    .panel{
+        margin-inline: -55%;
+        width: 65vw;
+    }
+}
+@media (max-width: 500px)
+{
+    .panel{
+        margin-inline: -85%;
+        width: 91vw;
+    }
+}

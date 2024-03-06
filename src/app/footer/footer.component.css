@@ -1,0 +1,23 @@
+footer{
+    margin-top: 5rem;
+}
+.row{
+    justify-content: center;
+    margin-top: 2vh;
+}
+.row > *{
+    width: auto;
+}
+a{
+    text-decoration: none;
+    justify-content: center;
+}
+p{
+    margin-right: 5px;
+}
+.col{
+    justify-content: center;
+}
+i{
+    color: #ffc107;
+}

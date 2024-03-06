@@ -1,0 +1,49 @@
+<app-nav> </app-nav>
+
+<div id="main">
+    <div class="container"> 
+    <div class="row">
+        <h1 style="margin-top: 5rem;">
+            Top Picks:
+        </h1>
+    </div>
+    
+    <div class="row" style="margin-top: 5rem;">
+        <h2>
+            <b>Movies</b>
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col"*ngFor="let m of movieTopPicks">
+            <div class="card">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="https://image.tmdb.org/t/p/w500{{m.poster_path}}" class="card-img-top" alt="movie Image">
+                    </div>
+                    <div class="col">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>{{m.title}}</b></h5>
+                            <p class="card-text">Release: {{m.release_date}}</p>
+                            <p class="card-text"><i class="fa-solid fa-star" style="color: #ffc107;"></i> {{m.vote_average | number: '.2-2'}}</p>
+                            <p class="card-text">Votes: {{m.vote_count}}</p>
+                            <p class="card-text" id="overview">{{m.overview}}</p>
+                        </div>
+                        <div class="row" style="margin-bottom: 1%; margin-top: 1%; margin-left: 1%;">
+                            <div *ngFor="let gen of m.genres" id="genres">
+                                {{gen.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+              <div class="card-footer">
+                <a [routerLink]="['/details', m.id]" class="btn btn-warning">See more!</a>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+</div>
+
+
+<app-footer></app-footer>

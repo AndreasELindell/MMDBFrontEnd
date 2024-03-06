@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/dashboard">
+        <h2>
+          <span class="badge text-bg-warning">MMDb</span>
+        </h2>
+      </a>
+      <form class="d-flex input-group" id="seachbar">
+        <input [(ngModel)]="searchString" name="searchString" class="form-control me-2" type="search" placeholder="Search for movies" aria-label="Search">
+        <a class="btn btn-warning" (click)="searchMovies()">Search</a>
+      </form>
+      <div class="d-flex" id="user">
+        <h3 class="text-white">hello! {{username}} </h3>
+        <button class="btn btn-danger" (click)="signout()">Sign out</button>
+      </div>
+  </div>
+    
+  </nav>
